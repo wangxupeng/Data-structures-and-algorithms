@@ -479,7 +479,7 @@ if __name__ == '__main__':
 
 ![](../PIC/chapter3/chapter3-9.png)
 
-#### 操作
+### 操作
 *  is_empty() 链表是否为空
 *  length() 链表长度
 *  travel() 遍历链表
@@ -488,7 +488,7 @@ if __name__ == '__main__':
 *  insert(pos, item) 指定位置添加
 *  remove(item) 删除节点
 *  search(item) 查找节点是否存在
-#### 实现
+### 实现
 
 ```py
 #双向链表
