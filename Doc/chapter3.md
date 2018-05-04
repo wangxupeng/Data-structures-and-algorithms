@@ -72,6 +72,7 @@ class SingleLinkList(object):
 ### 头部添加元素
 
 ![](../PIC/chapter3/chapter3-3.png)
+
 ``` py
     def add(self, item):
         """头部添加元素"""
