@@ -314,7 +314,7 @@ if __name__ == '__main__':
 
 ![](../PIC/chapter3/chapter3-8.png)
 
-操作
+### 操作
 *  is_empty() 判断链表是否为空
 *  length() 返回链表的长度
 *  travel() 遍历
