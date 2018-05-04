@@ -195,3 +195,115 @@ if __name__ == "__main__":
 ![](../PIC/chapter3/chapter3-7.png)
 
 注意虽然表面看起来复杂度都是 O(n)，但是链表和顺序表在插入和删除时进行的是完全不同的操作。链表的主要耗时操作是遍历查找，删除和插入操作本身的复杂度是O(1)。顺序表查找很快，主要耗时的操作是拷贝覆盖。因为除了目标元素在尾部的特殊情况，顺序表进行插入和删除时需要对操作点之后的所有元素进行前后移位操作，只能通过拷贝和覆盖的方法进行。
+
+```
+#单项链表
+class Node(object):
+   def __init__(self, elem):
+      self.elem = elem
+      self.next = None
+
+
+class SingleLinkList(object):
+   def __init__(self, node=None):
+      self.__head = node
+
+   def is_empty(self):
+      return self.__head == None
+
+   def length(self):
+      cur = self.__head
+      count = 0
+      while cur != None:
+         count += 1
+         cur = cur.next
+      return count
+
+   def travel(self):
+      cur = self.__head
+      while cur != None:
+         print(cur.elem, end=" ")
+         cur = cur.next
+      print("")
+
+   def add(self, item):
+      """头插法 """
+      node = Node(item)
+      node.next = self.__head
+      self.__head = node
+
+   def append(self, item):
+      """尾插法"""
+      node = Node(item)
+      if self.is_empty():
+         self.__head = node
+      else:
+         cur = self.__head
+         while cur.next != None:
+            cur = cur.next
+         cur.next = node
+
+   def insert(self, pos, item):
+      if pos <= 0:
+         self.add(item)
+      elif pos > (self.length() - 1):
+         self.append(item)
+      else:
+         pre = self.__head
+         node = Node(item)
+         count = 0
+         while count < (pos - 1):
+            count += 1
+            pre = pre.next
+         # 当循环退出后 pre指向pos-1位置
+         node.next = pre.next
+         pre.next = node
+
+   def remove(self, item):
+      cur = self.__head
+      pre = None
+      while cur != None:
+         if cur.elem == item:
+            #先判断此节点是否是头结点
+            if cur == self.__head:
+               self.__head = cur.next
+               break
+            else:
+               pre.next = cur.next
+               break
+         else:
+            pre = cur
+            cur = cur.next
+
+   def search(self, item):
+      cur = self.__head
+      while cur != None:
+         if cur.elem == item:
+            return True
+         else:
+            cur = cur.next
+      return False
+
+
+if __name__ == '__main__':
+   ll = SingleLinkList()
+   print(ll.is_empty())
+   print(ll.length())
+
+   ll.append(1)
+   print(ll.is_empty())
+   print(ll.length())
+
+   ll.append(2)
+   ll.add(8)
+   ll.append(3)
+   ll.append(4)
+   ll.insert(2, 5)
+   ll.travel()
+   ll.insert(-1, 10)
+   ll.travel()
+   ll.insert(100, 50)
+   ll.travel()
+   ll.remove(5)
+   ll.travel()
+```
