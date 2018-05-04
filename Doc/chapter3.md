@@ -29,3 +29,56 @@ class SingleNode(object):
         # _next是下一个节点的标识
         self.next = None
 ```
+## 单链表的操作
+*  is_empty() 链表是否为空
+*  length() 链表长度
+*  travel() 遍历整个链表
+*  add(item) 链表头部添加元素
+*  append(item) 链表尾部添加元素
+*  insert(pos, item) 指定位置添加元素
+*  remove(item) 删除节点
+*  search(item) 查找节点是否存在
+## 单链表的实现
+``` py
+class SingleLinkList(object):
+    """单链表"""
+    def __init__(self):
+        self._head = None
+
+    def is_empty(self):
+        """判断链表是否为空"""
+        return self._head == None
+
+    def length(self):
+        """链表长度"""
+        # cur初始时指向头节点
+        cur = self._head
+        count = 0
+        # 尾节点指向None，当未到达尾部时
+        while cur != None:
+            count += 1
+            # 将cur后移一个节点
+            cur = cur.next
+        return count
+
+    def travel(self):
+        """遍历链表"""
+        cur = self._head
+        while cur != None:
+            print cur.item,
+            cur = cur.next
+        print ""
+```
+### 头部添加元素
+
+![](../PIC/chapter3/chapter3-3.png)
+``` py
+    def add(self, item):
+        """头部添加元素"""
+        # 先创建一个保存item值的节点
+        node = SingleNode(item)
+        # 将新节点的链接域next指向头节点，即_head指向的位置
+        node.next = self._head
+        # 将链表的头_head指向新节点
+        self._head = node
+```
