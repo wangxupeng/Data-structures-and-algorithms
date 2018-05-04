@@ -20,7 +20,7 @@
 
 ## 节点实现
 
-'''py
+``` py
 class SingleNode(object):
     """单链表的结点"""
     def __init__(self,item):
@@ -28,4 +28,4 @@ class SingleNode(object):
         self.item = item
         # _next是下一个节点的标识
         self.next = None
-'''
+```
