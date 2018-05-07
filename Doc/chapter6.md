@@ -27,3 +27,25 @@
 
 # 冒泡排序的分析
 ![](../PIC/chapter6/chapter6-1.png)
+## 代码
+```py
+# coding = utf-8
+def bubble_sort(alist):
+	n = len(alist)
+	for j in range(n).__reversed__():
+		for i in range(j):
+			if alist[i] > alist[i + 1]:
+				alist[i], alist[i + 1] = alist[i + 1], alist[i]
+
+
+if __name__ == '__main__':
+	alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+	# alist = [1, 2, 3, 4, 5]
+	bubble_sort(alist)
+	print(alist)
+```
+
+## 时间复杂度
+* 最优时间复杂度：O(n) （表示遍历一次发现没有任何可以交换的元素，排序结束。）
+* 最坏时间复杂度：O(<a href="https://www.codecogs.com/eqnedit.php?latex=n^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n^{2}" title="n^{2}" /></a>)
+* 稳定性：稳定
