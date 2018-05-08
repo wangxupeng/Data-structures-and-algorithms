@@ -86,3 +86,9 @@ if __name__ == '__main__':
 * 最坏时间复杂度：O(<a href="https://www.codecogs.com/eqnedit.php?latex=n^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n^{2}" title="n^{2}" /></a>)
 * 稳定性：不稳定（考虑升序每次选择最大的情况）
 ## 选择排序演示
+![](../PIC/chapter6/chapter6-4.gif)
+
+# 6.3插入排序
+插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
+
+## 插入排序分析
