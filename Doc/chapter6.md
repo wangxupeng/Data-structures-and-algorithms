@@ -63,3 +63,26 @@ if __name__ == '__main__':
 ![](../PIC/chapter6/chapter6-3.gif)
 
 红色表示当前最小值，黄色表示已排序序列，蓝色表示当前位置。
+
+```py
+# coding = utf-8
+def select_sort(alist):
+	n = len(alist)
+	for j in range(n):
+		min_index = j
+		for i in range(j + 1, n):  # 从j+1个数开始判断
+			if alist[i] < alist[min_index]:
+				alist[i], alist[min_index] = alist[min_index], alist[i]
+
+
+if __name__ == '__main__':
+	alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+	# alist = [1, 2, 3, 4, 5]
+	select_sort(alist)
+	print(alist)
+```
+## 时间复杂度
+* 最优时间复杂度：O(<a href="https://www.codecogs.com/eqnedit.php?latex=n^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n^{2}" title="n^{2}" /></a>)
+* 最坏时间复杂度：O(<a href="https://www.codecogs.com/eqnedit.php?latex=n^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n^{2}" title="n^{2}" /></a>)
+* 稳定性：不稳定（考虑升序每次选择最大的情况）
+## 选择排序演示
