@@ -94,3 +94,40 @@ if __name__ == '__main__':
 ## 插入排序分析
 ![](../PIC/chapter6/chapter6-5.png)
 ![](../PIC/chapter6/chapter6-6.gif)
+
+####version 1
+```py
+# coding = utf-8
+def insert_sort(alist):
+	n = len(alist)
+	for j in range(n+1):
+		for i in range(j).__reversed__():
+			if alist[i] < alist[i-1] and i-1>= 0:
+				alist[i], alist[i-1] = alist[i-1], alist[i]
+
+
+if __name__ == '__main__':
+	alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+	# alist = [1, 2, 3, 4, 5]
+	insert_sort(alist)
+	print(alist)
+```
+#### version 2
+```py 
+def insert_sort(alist):
+	n = len(alist)
+
+	for j in range(1, n):
+		i = j
+		while i > 0:
+			if alist[i] < alist[i - 1]:
+				alist[i - 1], alist[i], = alist[i], alist[i - 1]
+				i -= 1
+			else: break #如果比前面都大就退出
+
+if __name__ == '__main__':
+	li = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+	print(li)
+	insert_sort(li)
+	print(li)
+```
