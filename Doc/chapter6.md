@@ -131,3 +131,9 @@ if __name__ == '__main__':
 	insert_sort(li)
 	print(li)
 ```
+## 时间复杂度
+* 最优时间复杂度：O(n) （升序排列，序列已经处于升序状态）
+* 最坏时间复杂度：O(<a href="https://www.codecogs.com/eqnedit.php?latex=n^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n^{2}" title="n^{2}" /></a>)
+* 稳定性：稳定
+## 插入排序演示
+![](../PIC/chapter6/chapter6-7.gif)
