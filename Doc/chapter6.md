@@ -60,6 +60,6 @@ if __name__ == '__main__':
 
 ![](../PIC/chapter6/chapter6-2.png)
 
-![](../PIC/chapter6/chapter6-3.jpg)
+![](../PIC/chapter6/chapter6-3.gif)
 
 红色表示当前最小值，黄色表示已排序序列，蓝色表示当前位置。
