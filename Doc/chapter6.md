@@ -231,4 +231,4 @@ if __name__ == '__main__':
 * 稳定想：不稳定
 
 ## 希尔排序演示
-![](../PIC/chapter6/chapter6-9.jpg)
+![](../PIC/chapter6/chapter6-9.gif)
