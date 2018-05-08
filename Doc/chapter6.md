@@ -145,3 +145,90 @@ if __name__ == '__main__':
 希尔排序的基本思想是：将数组列在一个表中并对列分别进行插入排序，重复这过程，不过每次用更长的列（步长更长了，列数更少了）来进行。最后整个表就只有一列了。将数组转换至表是为了更好地理解这算法，算法本身还是使用数组进行排序。
 
 例如，假设有这样一组数[ 13 14 94 33 82 25 59 94 65 23 45 27 73 25 39 10 ]，如果我们以步长为5开始进行排序，我们可以通过将这列表放在有5列的表中来更好地描述算法，这样他们就应该看起来是这样(竖着的元素是步长组成)：
+```
+13 14 94 33 82
+25 59 94 65 23
+45 27 73 25 39
+10
+```
+然后我们对每列进行排序：
+```
+10 14 73 25 23
+13 27 94 33 39
+25 59 94 65 82
+45
+```
+将上述四行数字，依序接在一起时我们得到：[ 10 14 73 25 23 13 27 94 33 39 25 59 94 65 82 45 ]。这时10已经移至正确位置了，然后再以3为步长进行排序：
+```
+10 14 73
+25 23 13
+27 94 33
+39 25 59
+94 65 82
+45
+```
+排序之后变为：
+```
+10 14 13
+25 23 33
+27 25 59
+39 65 73
+45 94 82
+94
+```
+最后以1步长进行排序（此时就是简单的插入排序了）
+
+## 希尔排序的分析
+![](../PIC/chapter6/chapter6-8.png)
+#### version 1
+```py
+# coding = utf-8
+def shell_sort(alist):
+	n = len(alist)
+	gap = n // 2
+	while gap > 0:
+		for i in range(gap, n):
+			while i - gap >= 0 and  alist[i - gap] > alist[i] :
+				alist[i - gap], alist[i] = alist[i], alist[i - gap]
+				i -= gap
+		gap = gap // 2
+
+
+if __name__ == '__main__':
+	alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+	# alist = [1, 2, 3, 4, 5]
+	shell_sort(alist)
+	print(alist)
+```
+
+#### version 2
+```py
+def shell_sort(alist):
+	n = len(alist)
+	gap = n // 2
+	while gap > 0:
+		for j in range(gap, n):
+			i = j
+			while i > 0:
+				if alist[i] < alist[i - gap] and i - gap >= 0:
+					alist[i - gap], alist[i], = alist[i], alist[i - gap]
+					i -= gap
+				else:
+					break  # 如果比前面都大就退出
+		gap //= 2
+
+
+if __name__ == '__main__':
+	li = [54, 26, 93, 17, 77, 31, 1]
+	print(li)
+	shell_sort(li)
+	print(li)
+```
+## 时间复杂度
+
+* 最优时间复杂度：根据步长序列的不同而不同
+* 最坏时间复杂度：O(<a href="https://www.codecogs.com/eqnedit.php?latex=n^{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n^{2}" title="n^{2}" /></a>)
+* 稳定想：不稳定
+
+## 希尔排序演示
+![](../PIC/chapter6/chapter6-9.jpg)
