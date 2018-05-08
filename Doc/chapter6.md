@@ -58,7 +58,7 @@ if __name__ == '__main__':
 ## 选择排序分析
 排序过程：
 
-![](../PIC/chapter6/chapter6-2.png)
+![](../PIC/chapter6/chapter6-2.jpg)
 
 ![](../PIC/chapter6/chapter6-3.gif)
 
