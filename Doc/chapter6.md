@@ -371,7 +371,25 @@ if __name__ == '__main__':
 ```
 ### （递归实现）
 ```py
+# coding = utf-8
+def binary_search(alist, item):
+	if len(alist) == 0:
+		return False
+	else:
+		mid_index = len(alist) // 2
+		if alist[mid_index] == item:
+			return True
+		else:
+			if item < alist[mid_index]:
+				return binary_search(alist[:mid_index], item)
+			else:
+				return binary_search(alist[mid_index + 1:], item)
 
+
+if __name__ == '__main__':
+	testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42, ]
+	print(binary_search(testlist, 3))
+	# print(binary_search(testlist, 13))
 ```
 ## 时间复杂度
 * 最优时间复杂度：O(1)
