@@ -72,3 +72,45 @@
 
 ## 二叉树的节点表示以及树的创建
 通过使用Node类中定义三个属性，分别为elem本身的值，还有lchild左孩子和rchild右孩子
+```py
+class Node(object):
+	def __init__(self,item):
+		self.elem = item
+		self.lchind = None
+		self.rchild = None
+```
+树的创建,创建一个树的类，并给一个root根节点，一开始为空，随后添加节点
+```py
+class Tree(object):
+	def __init__(self):
+		self.root = None
+
+	def add(self,item):
+		queue = [self.root]
+		node = Node(item)
+		cur_node = queue.pop(0)
+		if self.root == None:
+			self.root = node
+			return
+		else:
+			while queue:
+				if cur_node.lchild is None:
+					cur_node.lchild = node
+					return
+				else:
+					queue.append(cur_node.lchild)
+				if cur_node.rchild is None:
+					cur_node.rchild = node
+					return
+				else:
+					queue.append(cur_node.rchild)
+```
+# 二叉树的遍历
+树的遍历是树的一种重要的运算。所谓遍历是指对树中所有结点的信息的访问，即依次对树中每个结点访问一次且仅访问一次，我们把这种对所有节点的访问称为遍历（traversal）。那么树的两种重要的遍历模式是深度优先遍历和广度优先遍历,`深度优先一般用递归，广度优先一般用队列。一般情况下能用递归实现的算法大部分也能用堆栈来实现。`
+
+## 深度优先遍历
+对于一颗二叉树，深度优先搜索(Depth First Search)是沿着树的深度遍历树的节点，尽可能深的搜索树的分支。
+那么深度遍历有重要的三种方法。这三种方式常被用于访问树的节点，它们之间的不同在于访问每个节点的次序不同。这三种遍历分别叫做先序遍历（preorder），中序遍历（inorder）和后序遍历（postorder）。我们来给出它们的详细定义，然后举例看看它们的应用。
+
+* 先序遍历 在先序遍历中，我们先访问根节点，然后递归使用先序遍历访问左子树，再递归使用先序遍历访问右子树
+根节点->左子树->右子树
