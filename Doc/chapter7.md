@@ -115,9 +115,42 @@ class Tree(object):
 * 先序遍历 在先序遍历中，我们先访问根节点，然后递归使用先序遍历访问左子树，再递归使用先序遍历访问右子树
 
 根节点->左子树->右子树
+```py
+def preorder(self, node):
+	if node == None:
+		return
+	print(node.elem, end=",")
+	self.preorder(node.lchild)
+	self.preorder(node.rchild)
+```
 
+* 中序遍历 在中序遍历中，我们递归使用中序遍历访问左子树，然后访问根节点，最后再递归使用中序遍历访问右子树
 
+左子树->根节点->右子树
+```py
+def inorder(self, node):
+	if node == None:
+		return
+	self.inorder(node.lchild)
+	print(node.elem, end=",")
+	self.inorder(node.rchild)
+```
 
+* 后序遍历 在后序遍历中，我们先递归使用后序遍历访问左子树和右子树，最后访问根节点
+
+左子树->右子树->根节点
+
+```py
+def postorder(self, node):
+	if node == None:
+		return
+	self.postorder(node.lchild)
+	self.postorder(node.rchild)
+	print(node.elem, end=",")
+```
+![](../PIC/chapter7/chapter7-8.jpg)
+
+![](../PIC/chapter7/chapter7-9.png)
 
 ## 广度优先遍历(层次遍历)
 从树的root开始，从上到下从从左到右遍历整个树的节点
