@@ -115,3 +115,22 @@ class Tree(object):
 * 先序遍历 在先序遍历中，我们先访问根节点，然后递归使用先序遍历访问左子树，再递归使用先序遍历访问右子树
 
 根节点->左子树->右子树
+
+
+
+
+## 广度优先遍历(层次遍历)
+从树的root开始，从上到下从从左到右遍历整个树的节点
+```py
+def breadth_travel(self):
+	if self.root is None:
+		return
+	queue = [self.root]
+	while queue:
+		cur_node = queue.pop(0)
+		print(cur_node.elem, end=",")
+		if cur_node.lchild is not None:
+			queue.append(cur_node.lchild)
+		if cur_node.rchild is not None:
+			queue.append(cur_node.rchild)
+```
