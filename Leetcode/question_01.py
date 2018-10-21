@@ -12,7 +12,7 @@ def twoSum(nums, target):
     :rtype: List[int]
     """
     for i in range(len(nums)):
-        for j in range(i, len(nums)):
+        for j in range(i+1, len(nums)):
             if nums[i] + nums[j] == target:
                 return [i, j]
             else:
@@ -26,9 +26,11 @@ def twoSum(nums, target):
     :rtype: List[int]
     """
     for i in range(len(nums)):
-        rest = target - nums[i]
-        if rest in set(nums):
-            return [i, nums[rest].index]
+        num = target - nums[i]
+        if num in set(nums[i + 1:]):
+            return [i, nums[i + 1:].index(num)+i+1]
+        else:
+            pass
 
 
 if __name__ == '__main__':
