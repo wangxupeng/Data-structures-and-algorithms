@@ -4,7 +4,7 @@
 # @Author  : akon_wong
 # @File    : 1.py
 
-#way1
+#way1 暴力求解
 def twoSum(nums, target):
     """
     :type nums: List[int]
@@ -31,6 +31,21 @@ def twoSum(nums, target):
             return [i, nums[i + 1:].index(num)+i+1]
         else:
             pass
+#way3
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        d ={}
+        
+        for i,num in enumerate(nums):
+            if num not in d:
+                d[target-num] = i
+            else:
+                return [d[num], i]
 
 
 if __name__ == '__main__':
